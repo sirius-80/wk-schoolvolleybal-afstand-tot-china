@@ -93,6 +93,18 @@ main {
 .plane {
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
     transform-origin: center;
+    transform-box: fill-box;
+}
+
+/* Country shapes */
+.country-shape {
+    stroke: rgba(0, 0, 0, 0.1);
+    stroke-width: 1;
+    transition: opacity 0.3s ease;
+}
+
+.country-shape:hover {
+    opacity: 0.6 !important;
 }
 
 /* Info Panel */
@@ -180,17 +192,17 @@ footer {
     }
 }
 
-/* Plane flight animation */
+/* Plane flight animation - subtle pulsing shadow instead of transform */
 .plane-flying {
-    animation: planeFloat 3s ease-in-out infinite;
+    animation: planePulse 3s ease-in-out infinite;
 }
 
-@keyframes planeFloat {
+@keyframes planePulse {
     0%, 100% {
-        transform: translateY(0);
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
     }
     50% {
-        transform: translateY(-5px);
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
     }
 }
 

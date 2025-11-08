@@ -16,6 +16,33 @@
         <main>
             <div class="visualization-container" id="vizContainer">
                 <svg id="flightMap" viewBox="0 0 1000 400" preserveAspectRatio="xMidYMid meet">
+                    <!-- Stylized country shapes -->
+                    <g class="map-countries">
+                        <!-- Nederland/België -->
+                        <path d="M 80 240 L 100 235 L 115 245 L 110 255 L 95 258 L 85 250 Z"
+                              class="country-shape" fill="#C8E6C9" opacity="0.4"/>
+
+                        <!-- Duitsland -->
+                        <path d="M 115 245 L 140 230 L 180 235 L 200 248 L 190 265 L 160 270 L 140 260 L 120 252 Z"
+                              class="country-shape" fill="#C8E6C9" opacity="0.4"/>
+
+                        <!-- Polen -->
+                        <path d="M 200 248 L 250 240 L 280 245 L 290 260 L 270 275 L 240 270 L 210 265 Z"
+                              class="country-shape" fill="#C8E6C9" opacity="0.4"/>
+
+                        <!-- Rusland (groot gebied) -->
+                        <path d="M 290 260 L 350 230 L 450 210 L 580 215 L 650 225 L 680 245 L 670 280 L 620 290 L 550 285 L 450 275 L 350 270 L 300 275 Z"
+                              class="country-shape" fill="#B3E5FC" opacity="0.4"/>
+
+                        <!-- Mongolië -->
+                        <path d="M 680 245 L 720 240 L 760 248 L 775 265 L 760 280 L 720 285 L 690 275 Z"
+                              class="country-shape" fill="#FFE0B2" opacity="0.4"/>
+
+                        <!-- China -->
+                        <path d="M 775 265 L 820 255 L 870 260 L 910 270 L 920 285 L 900 300 L 860 295 L 810 290 L 780 285 Z"
+                              class="country-shape" fill="#FFCCBC" opacity="0.4"/>
+                    </g>
+
                     <!-- Flight path -->
                     <path id="flightPath" class="flight-path" d="M 100 250 Q 300 150, 500 200 T 900 250"
                           fill="none" stroke="#CBD5E0" stroke-width="3" stroke-dasharray="10,10"/>
@@ -33,20 +60,20 @@
                     </g>
 
                     <!-- Country markers along the route -->
-                    <text x="250" y="130" class="country-label">Duitsland</text>
-                    <text x="350" y="150" class="country-label">Polen</text>
+                    <text x="150" y="220" class="country-label">Duitsland</text>
+                    <text x="250" y="210" class="country-label">Polen</text>
                     <text x="500" y="180" class="country-label">Rusland</text>
-                    <text x="650" y="190" class="country-label">Mongolië</text>
+                    <text x="720" y="230" class="country-label">Mongolië</text>
 
-                    <!-- Plane -->
-                    <g id="plane" class="plane">
+                    <!-- Plane (starts at origin, will be positioned by JS) -->
+                    <g id="plane" class="plane" transform="translate(100, 250)">
                         <path d="M 0 -8 L -12 4 L -8 6 L -10 12 L -6 12 L 0 8 L 6 12 L 10 12 L 8 6 L 12 4 Z"
                               fill="#FF8A65"/>
                         <circle cx="0" cy="0" r="3" fill="#FFA726"/>
                     </g>
 
                     <!-- Current country indicator -->
-                    <text id="currentCountry" x="500" y="350" class="current-country"></text>
+                    <text id="currentCountry" x="500" y="370" class="current-country"></text>
                 </svg>
             </div>
 

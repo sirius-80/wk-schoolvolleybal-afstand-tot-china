@@ -34,6 +34,9 @@ function animatePlane(targetPercentage) {
         return;
     }
 
+    // Store the final position for the floating animation
+    let finalTransform = '';
+
     // Set up Intersection Observer to trigger animation when visible
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -69,12 +72,16 @@ function animatePlane(targetPercentage) {
             const angle = getAngleAtPercentage(path, currentPercentage);
 
             // Update plane position and rotation
-            plane.setAttribute('transform', `translate(${point.x}, ${point.y}) rotate(${angle})`);
+            // Use separate translate and rotate to maintain proper transform
+            const transform = `translate(${point.x}, ${point.y}) rotate(${angle})`;
+            plane.setAttribute('transform', transform);
 
             // Continue animation if not complete
             if (progress < 1) {
                 requestAnimationFrame(animate);
             } else {
+                // Store final transform
+                finalTransform = transform;
                 // Add floating animation class when done
                 plane.classList.add('plane-flying');
             }
