@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schoolvolleybal WK - Reis naar China</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Schoolvolleybal WK - Reis naar China</h1>
+            <p class="subtitle">Volg onze voortgang richting het wereldkampioenschap!</p>
+        </header>
+
+        <main>
+            <div class="visualization-container" id="vizContainer">
+                <svg id="flightMap" viewBox="0 0 1000 400" preserveAspectRatio="xMidYMid meet">
+                    <!-- Flight path -->
+                    <path id="flightPath" class="flight-path" d="M 100 250 Q 300 150, 500 200 T 900 250"
+                          fill="none" stroke="#CBD5E0" stroke-width="3" stroke-dasharray="10,10"/>
+
+                    <!-- Start location -->
+                    <g id="startLocation">
+                        <circle cx="100" cy="250" r="8" fill="#66BB6A"/>
+                        <text x="100" y="280" class="location-label">Nederland 🇳🇱</text>
+                    </g>
+
+                    <!-- End location -->
+                    <g id="endLocation">
+                        <circle cx="900" cy="250" r="8" fill="#FF8A65"/>
+                        <text x="900" y="280" class="location-label">China 🇨🇳</text>
+                    </g>
+
+                    <!-- Country markers along the route -->
+                    <text x="250" y="130" class="country-label">Duitsland</text>
+                    <text x="350" y="150" class="country-label">Polen</text>
+                    <text x="500" y="180" class="country-label">Rusland</text>
+                    <text x="650" y="190" class="country-label">Mongolië</text>
+
+                    <!-- Plane -->
+                    <g id="plane" class="plane">
+                        <path d="M 0 -8 L -12 4 L -8 6 L -10 12 L -6 12 L 0 8 L 6 12 L 10 12 L 8 6 L 12 4 Z"
+                              fill="#FF8A65"/>
+                        <circle cx="0" cy="0" r="3" fill="#FFA726"/>
+                    </g>
+
+                    <!-- Current country indicator -->
+                    <text id="currentCountry" x="500" y="350" class="current-country"></text>
+                </svg>
+            </div>
+
+            <div class="info-panel">
+                <div class="stat-card primary">
+                    <div class="stat-value" id="amountRaised">€ 0</div>
+                    <div class="stat-label">van € 41.500 opgehaald</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-value" id="percentage">0%</div>
+                    <div class="stat-label">gefinancierd</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-value" id="kmTraveled">0 km</div>
+                    <div class="stat-label">van 8.000 km afgelegd</div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Laatste update: <span id="lastUpdate">-</span></p>
+        </footer>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/animation.js"></script>
+</body>
+</html>
