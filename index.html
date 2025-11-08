@@ -17,13 +17,16 @@
             <div class="visualization-container" id="vizContainer">
                 <svg id="flightMap" viewBox="0 0 1000 400" preserveAspectRatio="xMidYMid meet">
                     <!-- Background rectangle -->
-                    <rect x="0" y="0" width="1000" height="400" fill="#E3F2FD" opacity="0.3"/>
+                    <rect x="0" y="0" width="1000" height="400" fill="#E8F4F8" opacity="0.5"/>
 
-                    <!-- World map embedded - cropped to show Europe to Asia -->
-                    <image href="world.svg" x="-50" y="-80" width="1100" height="560" opacity="0.7" preserveAspectRatio="xMidYMid slice"/>
+                    <!-- World map embedded - positioned to show Europe to China -->
+                    <image href="world.svg" x="-350" y="-50" width="1700" height="500" opacity="1"
+                           preserveAspectRatio="xMidYMid meet" class="world-map"/>
 
-                    <!-- Flight path - adjusted to better follow over land -->
-                    <path id="flightPath" class="flight-path" d="M 100 250 Q 280 160, 480 200 Q 680 230, 900 260"
+                    <!-- Flight path - great circle route (follows Earth's curvature) -->
+                    <!-- Route arcs northward through Russia, as is realistic for NL->China flights -->
+                    <path id="flightPath" class="flight-path"
+                          d="M 100 250 Q 200 120, 400 100 T 700 140 T 900 260"
                           fill="none" stroke-width="4" stroke-dasharray="8,6"/>
 
                     <!-- Start location -->
@@ -38,11 +41,6 @@
                         <text x="900" y="300" class="location-label">China 🇨🇳</text>
                     </g>
 
-                    <!-- Country markers along the route -->
-                    <text x="200" y="190" class="country-label">Duitsland</text>
-                    <text x="320" y="175" class="country-label">Polen</text>
-                    <text x="520" y="185" class="country-label">Rusland</text>
-                    <text x="730" y="215" class="country-label">Mongolië</text>
 
                     <!-- Plane (starts at origin, will be positioned by JS) -->
                     <g id="plane" class="plane" transform="translate(100, 250)">

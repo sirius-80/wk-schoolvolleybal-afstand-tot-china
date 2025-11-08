@@ -111,8 +111,10 @@ main {
 }
 
 /* World map styling */
-image {
+.world-map {
     pointer-events: none;
+    /* Make the black countries light gray */
+    filter: brightness(1.8) contrast(0.3) saturate(0.2);
 }
 
 /* Info Panel */
