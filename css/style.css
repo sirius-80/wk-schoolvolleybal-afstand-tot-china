@@ -64,7 +64,8 @@ main {
 
 /* Flight Path */
 .flight-path {
-    opacity: 0.6;
+    opacity: 0.8;
+    filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.5));
 }
 
 /* Location Labels */
@@ -98,13 +99,32 @@ main {
 
 /* Country shapes */
 .country-shape {
-    stroke: rgba(0, 0, 0, 0.1);
-    stroke-width: 1;
-    transition: opacity 0.3s ease;
+    stroke: rgba(0, 0, 0, 0.15);
+    stroke-width: 1.5;
+    transition: all 0.3s ease;
 }
 
 .country-shape:hover {
-    opacity: 0.6 !important;
+    opacity: 0.7 !important;
+    stroke-width: 2;
+    stroke: rgba(0, 0, 0, 0.3);
+}
+
+/* Different country regions with subtle variations */
+.west-europe, .central-europe, .scandinavia {
+    stroke: #2E7D32;
+}
+
+.russia-west, .russia-east {
+    stroke: #0277BD;
+}
+
+.mongolia {
+    stroke: #EF6C00;
+}
+
+.china-north, .china-south {
+    stroke: #D84315;
 }
 
 /* Info Panel */

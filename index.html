@@ -16,54 +16,81 @@
         <main>
             <div class="visualization-container" id="vizContainer">
                 <svg id="flightMap" viewBox="0 0 1000 400" preserveAspectRatio="xMidYMid meet">
-                    <!-- Stylized country shapes -->
+                    <!-- Ocean/sea background -->
+                    <rect x="0" y="0" width="1000" height="400" fill="#E3F2FD" opacity="0.3"/>
+
+                    <!-- Stylized country shapes - more realistic and covering full area -->
                     <g class="map-countries">
-                        <!-- Nederland/België -->
-                        <path d="M 80 240 L 100 235 L 115 245 L 110 255 L 95 258 L 85 250 Z"
-                              class="country-shape" fill="#C8E6C9" opacity="0.4"/>
+                        <!-- West Europa (Frankrijk, België, Nederland) -->
+                        <path d="M 0 180 L 20 160 L 40 150 L 60 155 L 75 165 L 85 180 L 95 200 L 100 220 L 105 240 L 100 260 L 90 275 L 75 285 L 55 290 L 35 285 L 20 270 L 10 250 L 5 230 L 0 210 Z"
+                              class="country-shape west-europe" fill="#C8E6C9" opacity="0.5"/>
 
-                        <!-- Duitsland -->
-                        <path d="M 115 245 L 140 230 L 180 235 L 200 248 L 190 265 L 160 270 L 140 260 L 120 252 Z"
-                              class="country-shape" fill="#C8E6C9" opacity="0.4"/>
+                        <!-- Duitsland & Polen -->
+                        <path d="M 100 220 L 120 200 L 145 185 L 175 175 L 210 170 L 245 175 L 280 185 L 310 200 L 325 220 L 330 245 L 320 270 L 300 290 L 270 305 L 235 310 L 200 305 L 170 295 L 140 280 L 115 260 Z"
+                              class="country-shape central-europe" fill="#C8E6C9" opacity="0.5"/>
 
-                        <!-- Polen -->
-                        <path d="M 200 248 L 250 240 L 280 245 L 290 260 L 270 275 L 240 270 L 210 265 Z"
-                              class="country-shape" fill="#C8E6C9" opacity="0.4"/>
+                        <!-- Scandinavië -->
+                        <path d="M 120 60 L 160 40 L 200 35 L 235 45 L 260 65 L 275 95 L 280 125 L 270 155 L 250 170 L 220 165 L 190 155 L 165 140 L 145 120 L 130 95 Z"
+                              class="country-shape scandinavia" fill="#C8E6C9" opacity="0.4"/>
 
-                        <!-- Rusland (groot gebied) -->
-                        <path d="M 290 260 L 350 230 L 450 210 L 580 215 L 650 225 L 680 245 L 670 280 L 620 290 L 550 285 L 450 275 L 350 270 L 300 275 Z"
-                              class="country-shape" fill="#B3E5FC" opacity="0.4"/>
+                        <!-- Rusland (West deel) -->
+                        <path d="M 330 100 L 380 75 L 430 65 L 480 70 L 530 80 L 570 95 L 600 115 L 625 140 L 645 170 L 655 205 L 650 240 L 635 275 L 610 305 L 575 325 L 535 335 L 490 330 L 450 315 L 410 295 L 375 270 L 345 240 L 330 210 L 320 175 L 325 140 Z"
+                              class="country-shape russia-west" fill="#B3E5FC" opacity="0.5"/>
+
+                        <!-- Rusland (Oost deel) -->
+                        <path d="M 625 140 L 665 125 L 705 120 L 745 125 L 780 140 L 810 165 L 830 195 L 840 230 L 835 265 L 820 295 L 795 320 L 760 335 L 720 340 L 680 335 L 645 320 L 620 295 L 605 265 L 600 230 L 605 195 L 615 165 Z"
+                              class="country-shape russia-east" fill="#B3E5FC" opacity="0.5"/>
 
                         <!-- Mongolië -->
-                        <path d="M 680 245 L 720 240 L 760 248 L 775 265 L 760 280 L 720 285 L 690 275 Z"
-                              class="country-shape" fill="#FFE0B2" opacity="0.4"/>
+                        <path d="M 810 165 L 845 155 L 875 158 L 900 170 L 915 190 L 922 215 L 920 240 L 910 265 L 890 285 L 865 295 L 835 298 L 810 290 L 790 275 L 778 255 L 775 230 L 780 205 L 795 185 Z"
+                              class="country-shape mongolia" fill="#FFE0B2" opacity="0.5"/>
 
-                        <!-- China -->
-                        <path d="M 775 265 L 820 255 L 870 260 L 910 270 L 920 285 L 900 300 L 860 295 L 810 290 L 780 285 Z"
-                              class="country-shape" fill="#FFCCBC" opacity="0.4"/>
+                        <!-- China (Noord) -->
+                        <path d="M 875 200 L 905 195 L 930 200 L 950 212 L 965 230 L 975 250 L 980 272 L 975 295 L 960 315 L 935 330 L 905 335 L 875 332 L 850 320 L 835 300 L 828 275 L 830 250 L 840 225 L 855 210 Z"
+                              class="country-shape china-north" fill="#FFCCBC" opacity="0.5"/>
+
+                        <!-- China (Zuid) -->
+                        <path d="M 935 330 L 955 315 L 975 305 L 990 310 L 1000 325 L 1000 360 L 990 380 L 970 390 L 945 395 L 915 390 L 890 375 L 875 355 L 870 335 L 880 325 L 905 325 Z"
+                              class="country-shape china-south" fill="#FFCCBC" opacity="0.5"/>
+
+                        <!-- Midden-Oosten -->
+                        <path d="M 300 290 L 330 280 L 365 285 L 395 300 L 415 325 L 425 355 L 420 385 L 400 400 L 370 400 L 340 390 L 315 370 L 295 345 L 285 320 Z"
+                              class="country-shape middle-east" fill="#FFE082" opacity="0.4"/>
+
+                        <!-- Centraal-Azië -->
+                        <path d="M 425 270 L 465 260 L 510 265 L 545 280 L 570 300 L 585 325 L 590 350 L 580 375 L 560 390 L 530 395 L 495 385 L 465 365 L 445 340 L 435 310 Z"
+                              class="country-shape central-asia" fill="#FFF9C4" opacity="0.4"/>
+
+                        <!-- India subcontinent hint -->
+                        <path d="M 545 340 L 575 335 L 605 345 L 625 365 L 635 390 L 630 415 L 610 430 L 585 435 L 560 425 L 545 405 L 540 380 L 542 360 Z"
+                              class="country-shape india" fill="#C5E1A5" opacity="0.3"/>
+
+                        <!-- Zuid-Oost Azië hint -->
+                        <path d="M 780 350 L 810 345 L 840 350 L 865 365 L 880 385 L 885 410 L 875 430 L 855 440 L 830 438 L 805 425 L 785 405 L 775 380 Z"
+                              class="country-shape southeast-asia" fill="#C5E1A5" opacity="0.3"/>
                     </g>
 
-                    <!-- Flight path -->
-                    <path id="flightPath" class="flight-path" d="M 100 250 Q 300 150, 500 200 T 900 250"
-                          fill="none" stroke="#CBD5E0" stroke-width="3" stroke-dasharray="10,10"/>
+                    <!-- Flight path - adjusted to better follow over land -->
+                    <path id="flightPath" class="flight-path" d="M 100 250 Q 280 160, 480 200 Q 680 230, 900 260"
+                          fill="none" stroke="#90A4AE" stroke-width="3" stroke-dasharray="10,10"/>
 
                     <!-- Start location -->
                     <g id="startLocation">
                         <circle cx="100" cy="250" r="8" fill="#66BB6A"/>
-                        <text x="100" y="280" class="location-label">Nederland 🇳🇱</text>
+                        <text x="100" y="285" class="location-label">Nederland 🇳🇱</text>
                     </g>
 
                     <!-- End location -->
                     <g id="endLocation">
-                        <circle cx="900" cy="250" r="8" fill="#FF8A65"/>
-                        <text x="900" y="280" class="location-label">China 🇨🇳</text>
+                        <circle cx="900" cy="260" r="8" fill="#FF8A65"/>
+                        <text x="900" y="295" class="location-label">China 🇨🇳</text>
                     </g>
 
                     <!-- Country markers along the route -->
-                    <text x="150" y="220" class="country-label">Duitsland</text>
-                    <text x="250" y="210" class="country-label">Polen</text>
-                    <text x="500" y="180" class="country-label">Rusland</text>
-                    <text x="720" y="230" class="country-label">Mongolië</text>
+                    <text x="200" y="190" class="country-label">Duitsland</text>
+                    <text x="320" y="175" class="country-label">Polen</text>
+                    <text x="520" y="185" class="country-label">Rusland</text>
+                    <text x="730" y="215" class="country-label">Mongolië</text>
 
                     <!-- Plane (starts at origin, will be positioned by JS) -->
                     <g id="plane" class="plane" transform="translate(100, 250)">

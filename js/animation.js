@@ -72,8 +72,8 @@ function animatePlane(targetPercentage) {
             const angle = getAngleAtPercentage(path, currentPercentage);
 
             // Update plane position and rotation
-            // Use separate translate and rotate to maintain proper transform
-            const transform = `translate(${point.x}, ${point.y}) rotate(${angle})`;
+            // Add 90 degrees because the plane SVG points upward by default
+            const transform = `translate(${point.x}, ${point.y}) rotate(${angle + 90})`;
             plane.setAttribute('transform', transform);
 
             // Continue animation if not complete
