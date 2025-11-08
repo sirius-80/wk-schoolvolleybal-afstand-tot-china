@@ -92,20 +92,6 @@ function animatePlane(targetPercentage) {
     }
 }
 
-/**
- * Create a subtle pulsing effect for the destination marker
- */
-function animateDestination() {
-    const endLocation = document.getElementById('endLocation');
-    if (endLocation) {
-        setInterval(() => {
-            endLocation.style.opacity = '0.7';
-            setTimeout(() => {
-                endLocation.style.opacity = '1';
-            }, 1000);
-        }, 2000);
-    }
-}
 
 /**
  * Add parallax effect to country labels on mouse move
@@ -163,11 +149,9 @@ window.animatePlane = animatePlane;
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         animateFlightPath();
-        animateDestination();
         addParallaxEffect();
     });
 } else {
     animateFlightPath();
-    animateDestination();
     addParallaxEffect();
 }

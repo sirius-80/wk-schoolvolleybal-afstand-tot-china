@@ -86,7 +86,6 @@ function formatDate(dateString) {
 function updateUI(data) {
     const percentage = calculatePercentage(data.huidigBedrag, data.doelBedrag);
     const kilometers = calculateKilometers(data.huidigBedrag, data.doelBedrag);
-    const currentCountry = getCurrentCountry(percentage);
 
     // Update amount raised
     document.getElementById('amountRaised').textContent = formatCurrency(data.huidigBedrag);
@@ -97,17 +96,13 @@ function updateUI(data) {
     // Update kilometers traveled
     document.getElementById('kmTraveled').textContent = kilometers.toLocaleString('nl-NL') + ' km';
 
-    // Update current country
-    document.getElementById('currentCountry').textContent = 'Nu boven: ' + currentCountry;
-
     // Update last update date
     document.getElementById('lastUpdate').textContent = formatDate(data.laatstBijgewerkt);
 
     // Return data for animation
     return {
         percentage,
-        kilometers,
-        currentCountry
+        kilometers
     };
 }
 

@@ -24,22 +24,22 @@
                     <svg x="0" y="0" width="1000" height="400" viewBox="450 225 365 175" preserveAspectRatio="xMidYMid slice">
                         <image href="world.svg" x="0" y="0" width="1009.6727" height="665.96301" class="world-map"/>
 
-                        <!-- Flight path in world.svg coordinates - great circle route -->
-                        <!-- Route arcs northward through Russia -->
+                        <!-- Flight path in world.svg coordinates - smooth great circle route -->
+                        <!-- Single smooth curve using cubic Bezier for no kinks -->
                         <path id="flightPath" class="flight-path"
-                              d="M 491 290 Q 570 260, 670 280 Q 740 310, 770 350"
+                              d="M 491 290 C 560 255, 690 270, 770 350"
                               fill="none" stroke-width="2" stroke-dasharray="6,4"/>
 
                         <!-- Start location - Netherlands -->
                         <g id="startLocation">
                             <circle cx="491" cy="290" r="5" fill="#4CAF50" stroke="white" stroke-width="2"/>
-                            <text x="491" y="305" class="location-label" font-size="10">Nederland 🇳🇱</text>
+                            <text x="491" y="282" class="location-label" font-size="7" text-anchor="middle">Nederland 🇳🇱</text>
                         </g>
 
                         <!-- End location - China -->
                         <g id="endLocation">
                             <circle cx="770" cy="350" r="5" fill="#FF6B6B" stroke="white" stroke-width="2"/>
-                            <text x="770" y="365" class="location-label" font-size="10">China 🇨🇳</text>
+                            <text x="770" y="342" class="location-label" font-size="7" text-anchor="middle">China 🇨🇳</text>
                         </g>
 
                         <!-- Plane (starts at Netherlands) -->
@@ -48,9 +48,6 @@
                                   fill="#FF6B6B" stroke="white" stroke-width="0.8"/>
                             <circle cx="0" cy="0" r="2" fill="#FFD54F" stroke="white" stroke-width="0.5"/>
                         </g>
-
-                        <!-- Current country indicator -->
-                        <text id="currentCountry" x="620" y="390" class="current-country" font-size="12"></text>
                     </svg>
                 </svg>
             </div>
