@@ -71,13 +71,13 @@ main {
 
 /* Location Labels */
 .location-label {
-    font-size: 17px;
+    font-size: 7px;
     font-weight: 700;
     fill: #2C3E50;
     text-anchor: middle;
     paint-order: stroke;
     stroke: white;
-    stroke-width: 3px;
+    stroke-width: 1.5px;
     stroke-linejoin: round;
 }
 
