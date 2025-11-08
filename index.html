@@ -19,38 +19,39 @@
                     <!-- Background rectangle -->
                     <rect x="0" y="0" width="1000" height="400" fill="#E8F4F8" opacity="0.5"/>
 
-                    <!-- World map embedded - positioned to show Europe to China -->
-                    <image href="world.svg" x="-350" y="-50" width="1700" height="500" opacity="1"
-                           preserveAspectRatio="xMidYMid meet" class="world-map"/>
+                    <!-- World map with correct viewBox to show Netherlands to China -->
+                    <!-- Nested SVG with viewBox targeting the NL-China region in world.svg -->
+                    <svg x="0" y="0" width="1000" height="400" viewBox="450 225 365 175" preserveAspectRatio="xMidYMid slice">
+                        <image href="world.svg" x="0" y="0" width="1009.6727" height="665.96301" class="world-map"/>
 
-                    <!-- Flight path - great circle route (follows Earth's curvature) -->
-                    <!-- Route arcs northward through Russia, as is realistic for NL->China flights -->
-                    <path id="flightPath" class="flight-path"
-                          d="M 100 250 Q 200 120, 400 100 T 700 140 T 900 260"
-                          fill="none" stroke-width="4" stroke-dasharray="8,6"/>
+                        <!-- Flight path in world.svg coordinates - great circle route -->
+                        <!-- Route arcs northward through Russia -->
+                        <path id="flightPath" class="flight-path"
+                              d="M 470 240 Q 550 230, 650 250 Q 730 270, 770 350"
+                              fill="none" stroke-width="2" stroke-dasharray="6,4"/>
 
-                    <!-- Start location -->
-                    <g id="startLocation">
-                        <circle cx="100" cy="250" r="10" fill="#4CAF50" stroke="white" stroke-width="3"/>
-                        <text x="100" y="290" class="location-label">Nederland 🇳🇱</text>
-                    </g>
+                        <!-- Start location - Netherlands -->
+                        <g id="startLocation">
+                            <circle cx="470" cy="240" r="5" fill="#4CAF50" stroke="white" stroke-width="2"/>
+                            <text x="470" y="255" class="location-label" font-size="10">Nederland 🇳🇱</text>
+                        </g>
 
-                    <!-- End location -->
-                    <g id="endLocation">
-                        <circle cx="900" cy="260" r="10" fill="#FF6B6B" stroke="white" stroke-width="3"/>
-                        <text x="900" y="300" class="location-label">China 🇨🇳</text>
-                    </g>
+                        <!-- End location - China -->
+                        <g id="endLocation">
+                            <circle cx="770" cy="350" r="5" fill="#FF6B6B" stroke="white" stroke-width="2"/>
+                            <text x="770" y="365" class="location-label" font-size="10">China 🇨🇳</text>
+                        </g>
 
+                        <!-- Plane (starts at Netherlands) -->
+                        <g id="plane" class="plane" transform="translate(470, 240)">
+                            <path d="M 0 -5 L -7 2.5 L -5 3.5 L -6 7 L -3.5 7 L 0 5 L 3.5 7 L 6 7 L 5 3.5 L 7 2.5 Z"
+                                  fill="#FF6B6B" stroke="white" stroke-width="0.8"/>
+                            <circle cx="0" cy="0" r="2" fill="#FFD54F" stroke="white" stroke-width="0.5"/>
+                        </g>
 
-                    <!-- Plane (starts at origin, will be positioned by JS) -->
-                    <g id="plane" class="plane" transform="translate(100, 250)">
-                        <path d="M 0 -10 L -14 5 L -10 7 L -12 14 L -7 14 L 0 10 L 7 14 L 12 14 L 10 7 L 14 5 Z"
-                              fill="#FF6B6B" stroke="white" stroke-width="1.5"/>
-                        <circle cx="0" cy="0" r="4" fill="#FFD54F" stroke="white" stroke-width="1"/>
-                    </g>
-
-                    <!-- Current country indicator -->
-                    <text id="currentCountry" x="500" y="370" class="current-country"></text>
+                        <!-- Current country indicator -->
+                        <text id="currentCountry" x="620" y="390" class="current-country" font-size="12"></text>
+                    </svg>
                 </svg>
             </div>
 
